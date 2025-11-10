@@ -65,6 +65,10 @@ dockers:
     build_flag_templates:
       - "--platform=linux/amd64"
     extra_files:
+      - go.mod
+      - go.sum
+      - cmd/
+      - pkg/
       - rules/
 
   - image_templates:
@@ -75,6 +79,10 @@ dockers:
     build_flag_templates:
       - "--platform=linux/arm64"
     extra_files:
+      - go.mod
+      - go.sum
+      - cmd/
+      - pkg/
       - rules/
 
 docker_manifests:
