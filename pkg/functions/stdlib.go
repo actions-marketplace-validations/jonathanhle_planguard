@@ -2,7 +2,7 @@ package functions
 
 import (
 	"github.com/hashicorp/hcl/v2/ext/tryfunc"
-	"github.com/planguard/planguard/pkg/parser"
+	"github.com/jonathanhle/planguard/pkg/parser"
 	ctyyaml "github.com/zclconf/go-cty-yaml"
 	"github.com/zclconf/go-cty/cty/function"
 	"github.com/zclconf/go-cty/cty/function/stdlib"

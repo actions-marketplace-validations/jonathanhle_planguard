@@ -3,7 +3,7 @@ package functions
 import (
 	"github.com/hashicorp/hcl/v2"
 	"github.com/hashicorp/hcl/v2/hclsyntax"
-	"github.com/planguard/planguard/pkg/parser"
+	"github.com/jonathanhle/planguard/pkg/parser"
 	"github.com/zclconf/go-cty/cty"
 	"github.com/zclconf/go-cty/cty/function"
 )

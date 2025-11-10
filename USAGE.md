@@ -6,7 +6,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-org/planguard.git
+git clone https://github.com/jonathanhle/planguard.git
 cd planguard
 
 # Build
@@ -19,12 +19,12 @@ make build
 ### Option 2: Using Go Install
 
 ```bash
-go install github.com/planguard/planguard/cmd/planguard@latest
+go install github.com/jonathanhle/planguard/cmd/planguard@latest
 ```
 
 ### Option 3: Download Binary
 
-Download from [Releases](https://github.com/planguard/planguard/releases) page.
+Download from [Releases](https://github.com/jonathanhle/planguard/releases) page.
 
 ## Quick Start
 
@@ -399,7 +399,7 @@ terraform-scan:
   stage: test
   image: golang:1.22
   before_script:
-    - git clone https://github.com/your-org/planguard.git /planguard
+    - git clone https://github.com/jonathanhle/planguard.git /planguard
     - cd /planguard && make build
     - export PATH=$PATH:/planguard/bin
   script:

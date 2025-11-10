@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/planguard/planguard/pkg/config"
-	"github.com/planguard/planguard/pkg/parser"
+	"github.com/jonathanhle/planguard/pkg/config"
+	"github.com/jonathanhle/planguard/pkg/parser"
 	"github.com/zclconf/go-cty/cty"
 )
 

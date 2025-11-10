@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/planguard/planguard/pkg/config"
+	"github.com/jonathanhle/planguard/pkg/config"
 )
 
 func TestNewReporter(t *testing.T) {

@@ -28,7 +28,7 @@ jobs:
       - uses: actions/checkout@v3
       
       - name: Planguard
-        uses: planguard/planguard@v1
+        uses: jonathanhle/planguard@v1
         with:
           config: .planguard/config.hcl
           fail-on: error
@@ -38,10 +38,10 @@ jobs:
 
 ```bash
 # Install from source
-go install github.com/planguard/planguard/cmd/planguard@latest
+go install github.com/jonathanhle/planguard/cmd/planguard@latest
 
 # Or download binary from releases
-curl -L https://github.com/planguard/planguard/releases/latest/download/planguard-linux-amd64 -o planguard
+curl -L https://github.com/jonathanhle/planguard/releases/latest/download/planguard-linux-amd64 -o planguard
 chmod +x planguard
 sudo mv planguard /usr/local/bin/
 ```
@@ -436,7 +436,7 @@ Options:
 
 ```yaml
 - name: Planguard
-  uses: planguard/planguard@v1
+  uses: jonathanhle/planguard@v1
   with:
     config: .planguard/config.hcl
     fail-on: error
@@ -452,7 +452,7 @@ Options:
 
 ```yaml
 terraform-scan:
-  image: planguard/planguard:latest
+  image: jonathanhle/planguard:latest
   script:
     - planguard -config .planguard/config.hcl
 ```
@@ -470,7 +470,7 @@ planguard -config .planguard/config.hcl -directory . || exit 1
 ### Build from Source
 
 ```bash
-git clone https://github.com/planguard/planguard.git
+git clone https://github.com/jonathanhle/planguard.git
 cd planguard
 make build
 ```
@@ -549,9 +549,9 @@ MIT License - see LICENSE file
 
 ## Support
 
-- 📖 Documentation: https://github.com/planguard/planguard
-- 🐛 Issues: https://github.com/planguard/planguard/issues
-- 💬 Discussions: https://github.com/planguard/planguard/discussions
+- 📖 Documentation: https://github.com/jonathanhle/planguard
+- 🐛 Issues: https://github.com/jonathanhle/planguard/issues
+- 💬 Discussions: https://github.com/jonathanhle/planguard/discussions
 
 ## Acknowledgments
 

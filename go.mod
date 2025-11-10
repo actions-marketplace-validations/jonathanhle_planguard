@@ -1,4 +1,4 @@
-module github.com/planguard/planguard
+module github.com/jonathanhle/planguard
 
 go 1.22
 

@@ -4,7 +4,7 @@ import (
 	"path/filepath"
 	"regexp"
 
-	"github.com/planguard/planguard/pkg/config"
+	"github.com/jonathanhle/planguard/pkg/config"
 )
 
 // ScanContext holds all parsed resources and metadata for scanning

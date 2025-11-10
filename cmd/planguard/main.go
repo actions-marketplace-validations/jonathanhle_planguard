@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/planguard/planguard/pkg/config"
-	"github.com/planguard/planguard/pkg/parser"
-	"github.com/planguard/planguard/pkg/reporter"
-	"github.com/planguard/planguard/pkg/scanner"
+	"github.com/jonathanhle/planguard/pkg/config"
+	"github.com/jonathanhle/planguard/pkg/parser"
+	"github.com/jonathanhle/planguard/pkg/reporter"
+	"github.com/jonathanhle/planguard/pkg/scanner"
 )
 
 const version = "1.0.0"

@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/hcl/v2"
-	"github.com/planguard/planguard/pkg/config"
+	"github.com/jonathanhle/planguard/pkg/config"
 )
 
 func TestNewParser(t *testing.T) {

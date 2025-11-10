@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/planguard/planguard/pkg/config"
+	"github.com/jonathanhle/planguard/pkg/config"
 )
 
 // Reporter handles violation reporting and formatting
@@ -143,7 +143,7 @@ func (r *Reporter) FormatSARIF() (string, error) {
 				"tool": map[string]interface{}{
 					"driver": map[string]interface{}{
 						"name":           "Terraform Guardian",
-						"informationUri": "https://github.com/planguard/planguard",
+						"informationUri": "https://github.com/jonathanhle/planguard",
 						"version":        "1.0.0",
 						"rules":          r.buildSARIFRules(),
 					},

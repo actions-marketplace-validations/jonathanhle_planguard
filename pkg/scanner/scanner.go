@@ -7,9 +7,9 @@ import (
 
 	"github.com/hashicorp/hcl/v2"
 	"github.com/hashicorp/hcl/v2/hclsyntax"
-	"github.com/planguard/planguard/pkg/config"
-	"github.com/planguard/planguard/pkg/functions"
-	"github.com/planguard/planguard/pkg/parser"
+	"github.com/jonathanhle/planguard/pkg/config"
+	"github.com/jonathanhle/planguard/pkg/functions"
+	"github.com/jonathanhle/planguard/pkg/parser"
 	"github.com/zclconf/go-cty/cty"
 	"github.com/zclconf/go-cty/cty/function"
 )
