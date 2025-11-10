@@ -51,15 +51,15 @@ changelog:
 
 release:
   github:
-    owner: terraform-planguard
+    owner: jonathanhle
     name: planguard
   draft: false
   prerelease: auto
 
 dockers:
   - image_templates:
-      - "ghcr.io/terraform-planguard/planguard:{{ .Version }}-amd64"
-      - "ghcr.io/terraform-planguard/planguard:latest-amd64"
+      - "ghcr.io/jonathanhle/planguard:{{ .Version }}-amd64"
+      - "ghcr.io/jonathanhle/planguard:latest-amd64"
     use: buildx
     dockerfile: Dockerfile
     build_flag_templates:
@@ -68,8 +68,8 @@ dockers:
       - rules/
 
   - image_templates:
-      - "ghcr.io/terraform-planguard/planguard:{{ .Version }}-arm64"
-      - "ghcr.io/terraform-planguard/planguard:latest-arm64"
+      - "ghcr.io/jonathanhle/planguard:{{ .Version }}-arm64"
+      - "ghcr.io/jonathanhle/planguard:latest-arm64"
     use: buildx
     dockerfile: Dockerfile
     build_flag_templates:
@@ -78,21 +78,21 @@ dockers:
       - rules/
 
 docker_manifests:
-  - name_template: "ghcr.io/terraform-planguard/planguard:{{ .Version }}"
+  - name_template: "ghcr.io/jonathanhle/planguard:{{ .Version }}"
     image_templates:
-      - "ghcr.io/terraform-planguard/planguard:{{ .Version }}-amd64"
-      - "ghcr.io/terraform-planguard/planguard:{{ .Version }}-arm64"
+      - "ghcr.io/jonathanhle/planguard:{{ .Version }}-amd64"
+      - "ghcr.io/jonathanhle/planguard:{{ .Version }}-arm64"
 
-  - name_template: "ghcr.io/terraform-planguard/planguard:latest"
+  - name_template: "ghcr.io/jonathanhle/planguard:latest"
     image_templates:
-      - "ghcr.io/terraform-planguard/planguard:latest-amd64"
-      - "ghcr.io/terraform-planguard/planguard:latest-arm64"
+      - "ghcr.io/jonathanhle/planguard:latest-amd64"
+      - "ghcr.io/jonathanhle/planguard:latest-arm64"
 
 brews:
   - name: planguard
     repository:
-      owner: terraform-planguard
+      owner: jonathanhle
       name: homebrew-tap
     description: "Pre-plan Terraform security scanner"
-    homepage: "https://github.com/terraform-planguard/planguard"
+    homepage: "https://github.com/jonathanhle/planguard"
     folder: Formula
