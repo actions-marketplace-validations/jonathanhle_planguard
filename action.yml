@@ -1,0 +1,50 @@
+name: 'Terraform Planguard'
+description: 'Pre-plan Terraform security scanner with HCL-based configuration'
+author: 'Terraform Planguard'
+
+branding:
+  icon: 'shield'
+  color: 'blue'
+
+inputs:
+  config:
+    description: 'Path to planguard config file'
+    required: false
+    default: '.planguard/config.hcl'
+  directory:
+    description: 'Directory to scan'
+    required: false
+    default: '.'
+  fail-on:
+    description: 'Severity level to fail on (error, warning, info)'
+    required: false
+    default: 'error'
+  format:
+    description: 'Output format (text, json, sarif)'
+    required: false
+    default: 'text'
+  rules-dir:
+    description: 'Directory containing default rules'
+    required: false
+    default: '/planguard/rules'
+
+outputs:
+  violations:
+    description: 'JSON array of violations found'
+  passed:
+    description: 'Whether the scan passed'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - '-config'
+    - ${{ inputs.config }}
+    - '-directory'
+    - ${{ inputs.directory }}
+    - '-fail-on'
+    - ${{ inputs.fail-on }}
+    - '-format'
+    - ${{ inputs.format }}
+    - '-rules-dir'
+    - ${{ inputs.rules-dir }}

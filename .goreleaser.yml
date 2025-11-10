@@ -1,0 +1,98 @@
+project_name: terraform-planguard
+
+before:
+  hooks:
+    - go mod tidy
+    - go test ./...
+
+builds:
+  - id: planguard
+    main: ./cmd/planguard
+    binary: planguard
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ignore:
+      - goos: windows
+        goarch: arm64
+
+archives:
+  - id: planguard
+    name_template: >-
+      {{ .ProjectName }}_
+      {{- .Version }}_
+      {{- .Os }}_
+      {{- .Arch }}
+    format_overrides:
+      - goos: windows
+        format: zip
+    files:
+      - README.md
+      - LICENSE
+      - rules/**/*
+      - examples/**/*
+
+checksum:
+  name_template: 'checksums.txt'
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
+      - '^chore:'
+
+release:
+  github:
+    owner: terraform-planguard
+    name: planguard
+  draft: false
+  prerelease: auto
+
+dockers:
+  - image_templates:
+      - "ghcr.io/terraform-planguard/planguard:{{ .Version }}-amd64"
+      - "ghcr.io/terraform-planguard/planguard:latest-amd64"
+    use: buildx
+    dockerfile: Dockerfile
+    build_flag_templates:
+      - "--platform=linux/amd64"
+    extra_files:
+      - rules/
+
+  - image_templates:
+      - "ghcr.io/terraform-planguard/planguard:{{ .Version }}-arm64"
+      - "ghcr.io/terraform-planguard/planguard:latest-arm64"
+    use: buildx
+    dockerfile: Dockerfile
+    build_flag_templates:
+      - "--platform=linux/arm64"
+    extra_files:
+      - rules/
+
+docker_manifests:
+  - name_template: "ghcr.io/terraform-planguard/planguard:{{ .Version }}"
+    image_templates:
+      - "ghcr.io/terraform-planguard/planguard:{{ .Version }}-amd64"
+      - "ghcr.io/terraform-planguard/planguard:{{ .Version }}-arm64"
+
+  - name_template: "ghcr.io/terraform-planguard/planguard:latest"
+    image_templates:
+      - "ghcr.io/terraform-planguard/planguard:latest-amd64"
+      - "ghcr.io/terraform-planguard/planguard:latest-arm64"
+
+brews:
+  - name: planguard
+    repository:
+      owner: terraform-planguard
+      name: homebrew-tap
+    description: "Pre-plan Terraform security scanner"
+    homepage: "https://github.com/terraform-planguard/planguard"
+    folder: Formula
