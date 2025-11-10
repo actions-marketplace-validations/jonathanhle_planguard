@@ -70,6 +70,7 @@ dockers:
       - cmd/
       - pkg/
       - rules/
+      - entrypoint.sh
 
   - image_templates:
       - "ghcr.io/jonathanhle/planguard:{{ .Version }}-arm64"
@@ -84,6 +85,7 @@ dockers:
       - cmd/
       - pkg/
       - rules/
+      - entrypoint.sh
 
 docker_manifests:
   - name_template: "ghcr.io/jonathanhle/planguard:{{ .Version }}"

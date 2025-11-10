@@ -31,5 +31,9 @@ COPY --from=builder /build/planguard /usr/local/bin/planguard
 # Copy default rules
 COPY rules /planguard/rules
 
+# Copy entrypoint script
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
 # Set entrypoint
-ENTRYPOINT ["/usr/local/bin/planguard"]
+ENTRYPOINT ["/entrypoint.sh"]
