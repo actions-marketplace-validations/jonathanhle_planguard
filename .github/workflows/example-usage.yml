@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  # Example 1: Basic usage
+  # Example 1: Basic usage (without config - uses default rules)
   basic-scan:
     name: Basic Scan
     runs-on: ubuntu-latest
@@ -16,6 +16,7 @@ jobs:
         with:
           directory: examples/terraform
           fail-on: error
+        continue-on-error: true  # Example files have violations
 
   # Example 2: Custom config with JSON output
   custom-config:
@@ -31,6 +32,7 @@ jobs:
           directory: examples/terraform
           format: json
           fail-on: warning
+        continue-on-error: true  # Example files have violations
 
   # Example 3: SARIF output for GitHub Security
   sarif-security:
