@@ -32,6 +32,7 @@ jobs:
       - name: Run Planguard
         uses: jonathanhle/planguard@v1
         with:
+          config: examples/.planguard/config.hcl
           directory: examples/terraform
           format: sarif
         continue-on-error: true
