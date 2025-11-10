@@ -103,4 +103,3 @@ brews:
       name: homebrew-tap
     description: "Pre-plan Terraform security scanner"
     homepage: "https://github.com/jonathanhle/planguard"
-    folder: Formula
