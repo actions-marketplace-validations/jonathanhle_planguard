@@ -543,6 +543,47 @@ Contributions welcome! Please:
 3. Add tests for new functionality
 4. Submit a pull request
 
+## For Maintainers
+
+### Releasing a New Version
+
+Planguard uses a `VERSION` file to control releases. To create a new release:
+
+1. **Update the VERSION file:**
+   ```bash
+   echo "0.2.0" > VERSION
+   git add VERSION
+   git commit -m "Release v0.2.0"
+   git push
+   ```
+
+2. **The release workflow automatically:**
+   - Creates and pushes a git tag (e.g., `v0.2.0`)
+   - Runs tests
+   - Builds binaries for all platforms
+   - Creates Docker images
+   - Publishes to GitHub Container Registry (`ghcr.io`)
+   - Updates Homebrew tap
+   - Creates GitHub Release with binaries
+
+3. **Update the major version tag (for GitHub Action users):**
+   ```bash
+   git tag -fa v0 -m "Update v0 to track v0.2.0"
+   git push origin v0 --force
+   ```
+
+### Required Secrets
+
+For releases to work properly, ensure the following GitHub Actions secrets are configured:
+
+- **`HOMEBREW_TAP_TOKEN`**: Personal Access Token with `repo` scope
+  - Create at: https://github.com/settings/tokens/new
+  - Required for: Updating the `jonathanhle/homebrew-tap` repository
+  - Scope needed: `repo` (full control of private repositories)
+  - Add to: Repository Settings → Secrets → Actions → New repository secret
+
+Without this token, releases will fail when trying to update the Homebrew formula.
+
 ## License
 
 MIT License - see LICENSE file
